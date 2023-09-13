@@ -16,8 +16,15 @@ public void BookTicket(Travels t)
 }
 public void trip()
 {
-	System.out.println(t.boarding);
-	System.out.println(t.dropping);
+	if(t!=null)
+	{
+		System.out.println(t.boarding);
+		System.out.println(t.dropping);
+	}
+	else
+	{
+		System.out.println("no passenger exits");
+	}
 }
 public void DownloadTicket()
 {
