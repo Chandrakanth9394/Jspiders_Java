@@ -1,0 +1,119 @@
+Case 1: When an exception does not rise 
+  // Java program to demonstrate 
+// finally block in java When 
+// exception does not rise 
+
+import java.io.*; 
+
+class GFG { 
+	public static void main(String[] args) 
+	{ 
+		try { 
+			System.out.println("inside try block"); 
+			
+			// Not throw any exception 
+			System.out.println(34 / 2); 
+		} 
+		
+		// Not execute in this case 
+		catch (ArithmeticException e) { 
+			
+			System.out.println("Arithmetic Exception"); 
+			
+		} 
+		// Always execute 
+		finally { 
+			
+			System.out.println( 
+				"finally : i execute always."); 
+			
+		} 
+	} 
+}
+
+
+Output
+inside try block
+17
+finally : i execute always.
+Case 2: When the exception rises and handled by the catch block
+In this case, the program throws an exception but handled by the catch block, and finally block executes after the catch block.
+
+  // Java program to demonstrate finally block in java 
+// When exception rise and handled by catch 
+
+import java.io.*; 
+
+class GFG { 
+	
+	public static void main(String[] args) 
+	{ 
+		try { 
+			System.out.println("inside try block"); 
+
+			// Throw an Arithmetic exception 
+			System.out.println(34 / 0); 
+		} 
+
+		// catch an Arithmetic exception 
+		catch (ArithmeticException e) { 
+
+			System.out.println( 
+				"catch : exception handled."); 
+		} 
+
+		// Always execute 
+		finally { 
+			
+		System.out.println("finally : i execute always."); 
+		} 
+	} 
+}
+
+Output
+inside try block
+catch : exception handled.
+finally : i execute always.
+Case 3: When exception rise and not handled by the catch block 
+
+In this case, the program throws an exception but not handled by catch so finally block execute after the try block and after the execution of finally block program terminate abnormally, But finally block execute fine.
+
+  // Java program to demonstrate finally block 
+// When exception rise and not handled by catch 
+
+import java.io.*; 
+
+class GFG { 
+	public static void main(String[] args) 
+	{ 
+		try { 
+			System.out.println("Inside try block"); 
+
+			// Throw an Arithmetic exception 
+			System.out.println(34 / 0); 
+		} 
+
+		// Can not accept Arithmetic type exception 
+		// Only accept Null Pointer type Exception 
+		catch (NullPointerException e) { 
+
+			System.out.println( 
+				"catch : exception not handled."); 
+		} 
+
+		// Always execute 
+		finally { 
+
+			System.out.println( 
+				"finally : i will execute always."); 
+		} 
+		// This will not execute 
+		System.out.println("i want to run"); 
+	} 
+}
+Output
+
+Inside try block
+finally : i will execute always.
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+    at GFG.main(File.java:10)
